@@ -15,9 +15,6 @@ canary:
     track: canary
     values:
       replicaCount: 1
-      region: 'us-west-2'
-      access_key: '${{ secrets.akey }}'
-      secret_key: '${{ secrets.skey }}'
 
 # Deployment to a production environment is kicked off manually. This actually
 # runs two deployment, one is to remove the canary pods if it exists and the
@@ -39,9 +36,6 @@ production:
     track: stable
     values:
       replicaCount: 2
-      region: 'us-west-2'
-      access_key: '${{ secrets.akey }}'
-      secret_key: '${{ secrets.skey }}'
 
 # Automatic deployment to a staging environment on every push to master.
 staging:
@@ -59,9 +53,6 @@ staging:
     track: stable
     values:
       replicaCount: 1
-      region: 'us-west-2'
-      access_key: '${{ secrets.akey }}'
-      secret_key: '${{ secrets.skey }}'
 
 # Review environments can be triggered with /deploy review inside a pull
 # request.
@@ -84,7 +75,5 @@ review:
     track: stable
     values:
       replicaCount: 1
-      region: 'us-west-2'
-      access_key: '${{ secrets.akey }}'
-      secret_key: '${{ secrets.skey }}'
+
 
