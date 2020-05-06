@@ -1,0 +1,28 @@
+name: 'Deploy'
+on: ['deployment']
+
+jobs:
+  deployment:
+#   runs-on: ubuntu-18.04
+    runs-on: 'ubuntu-latest'
+    steps:
+    - name: 'Checkout'
+      uses: 'actions/checkout@v1'
+
+    - name: 'Deploy'
+      # Parameters are pulled directly from the GitHub deployment event so the
+      # configuration for the job here is very minimal.
+      uses: 'deliverybot/helm@master'
+      with:
+        token: '${{ github.token }}'
+        secrets: '${{ toJSON(secrets) }}'
+#       version: latest
+        version: '${{ github.sha }}'
+        chart: './Chart'
+#       chart: './4-Demo-Restructured-Megachart/back'
+        values: |
+          region: 'us-west-2'
+          access_key: '${{ secrets.akey }}'
+          secret_key: '${{ secrets.skey }}'
+      env:
+        KUBECONFIG_FILE: '${{ secrets.KUBECONFIG }}'
