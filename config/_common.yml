@@ -2,6 +2,10 @@ secrets:
 - name: API_KEY
   value: '${{ secrets.API_KEY }}'
 
+region: 'us-west-2'
+access_key: '${{ secrets.akey }}'
+secret_key: '${{ secrets.skey }}'
+
 # Example image pull secrets:
 # imagePullSecrets:
 # - name: regcred
