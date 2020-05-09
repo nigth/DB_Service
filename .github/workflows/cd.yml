@@ -20,9 +20,9 @@ jobs:
         version: '${{ github.sha }}'
         chart: './Chart'
 #       chart: './4-Demo-Restructured-Megachart/back'
-        values: |
-          region: 'us-west-2'
-          access_key: '${{ secrets.akey }}'
-          secret_key: '${{ secrets.skey }}'
+#       values: |
+#         region: 'us-west-2'
+#         access_key: '${{ secrets.akey }}'
+#         secret_key: '${{ secrets.skey }}'
       env:
         KUBECONFIG_FILE: '${{ secrets.KUBECONFIG }}'
