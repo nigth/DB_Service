@@ -19,7 +19,6 @@ jobs:
 #       version: latest
         version: '${{ github.sha }}'
         chart: './Chart'
-#       chart: './4-Demo-Restructured-Megachart/back'
 #       values: |
 #         region: 'us-west-2'
 #         access_key: '${{ secrets.akey }}'
